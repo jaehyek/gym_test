@@ -3,9 +3,11 @@ import gym
 import matplotlib.pyplot as plt
 import cv2
 
+# pip install gym[atari,accept-rom-license]==0.21.0
+
 def main():
-    # env = gym.make("Breakout-v4", render_mode='human')
-    env = gym.make('CartPole-v1')
+    env = gym.make("Breakout-v4", render_mode='human')
+    # env = gym.make('CartPole-v1')
     observation, info = env.reset(seed=42, return_info=True)
 
     for loop in range(1000):
@@ -13,8 +15,8 @@ def main():
         action = env.action_space.sample()
         observation, reward, done, info = env.step(action)
         # env.render()
-        img = env.render(mode='rgb_array')
-        plt.imshow( img)
+        # img = env.render(mode='rgb_array')
+        # plt.imshow( img)
 
         if done:
             print(f'done')
